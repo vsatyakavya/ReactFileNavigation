@@ -22,19 +22,32 @@
 // }
 function App() {
   return <div>
-    <h3>hell o world!!!!</h3>
-    <h6>How are you doing</h6>
-    <Folder />
-    <Folder />
-    <Folder />
+  
+    <Folder name="Desktop"/>
+    <Folder name="Applications"/>
+    
   </div>
 }
 
 //created a component (Folder) and rendered by (App) component
 //javascript arrow function, which is also a React component
-const Folder = () => {
-  return <h4>Folder</h4>
+
+
+//to evaluate the variable (name) as javascript, we have to add {} to name as {name} 
+// const Folder = () => {
+//   const name = "my_deskop";
+//   return <h4>{name}</h4>
+// }
+
+//props is a regular function argument, default word in React
+//default props value is an empty object ,console.log(props) returns an {} empty object by default
+//To pass the values to the props , give it to the component(Folder) when calling a function (Folder)
+const Folder = (props) => {
+  console.log(props);
+  
+  return <h4>{props.name}</h4>
 }
+
 
 
 export default App;
