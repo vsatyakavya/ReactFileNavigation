@@ -23,18 +23,28 @@
 
 
 
+// <Folder name="Desktop">
+//<h3>some stuff</h3>  //h3 and h4 are childrens to this Folder, so we access then as props.children and name as props.name
+//h4>Other Thing</h4>
+
+ //</Folder> 
+
+
+
 function App() {
   return <div>
   
     <Folder name="Desktop">
-   <h3>some stuff</h3>
-   <h4>Other Thing</h4>
-
+       <Folder name = "Music">
+         <File name ="all_stars.mp4" />
+         <File name = "express_file.mp4"/>
+       </Folder>
+      <File name="dogs.jpeg" />    
+      <File name ="cats.png" />
     </Folder>
   
     <Folder name="Applications"/>
-    <File name="dogs.jpeg" />
-    <File name ="cats.png" />
+    
     
   </div>
 }
@@ -54,10 +64,11 @@ function App() {
 //To pass the values to the props , give it to the component(Folder) when calling a function (Folder)
 const Folder = (props) => {
   console.log(props);
-  const borderStyle = {border :'2px solid blue'}
-  return <div style = {borderStyle}>{props.name}
+  return <div>
+    {props.name}
+  <div style={{marginLeft : '17px'}}>
   {props.children}
-
+  </div>
   </div>
 }
 
