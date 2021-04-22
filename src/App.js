@@ -20,11 +20,21 @@
 //   <Folder />
 // </div>
 // }
+
+
+
 function App() {
   return <div>
   
-    <Folder name="Desktop"/>
+    <Folder name="Desktop">
+   <h3>some stuff</h3>
+   <h4>Other Thing</h4>
+
+    </Folder>
+  
     <Folder name="Applications"/>
+    <File name="dogs.jpeg" />
+    <File name ="cats.png" />
     
   </div>
 }
@@ -44,9 +54,19 @@ function App() {
 //To pass the values to the props , give it to the component(Folder) when calling a function (Folder)
 const Folder = (props) => {
   console.log(props);
-  
-  return <h4>{props.name}</h4>
+  const borderStyle = {border :'2px solid blue'}
+  return <div style = {borderStyle}>{props.name}
+  {props.children}
+
+  </div>
 }
+
+
+//created an another File Component
+const File = (props)=>{
+  return <div>{props.name}</div>
+
+};
 
 
 
