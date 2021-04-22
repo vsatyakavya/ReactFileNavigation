@@ -45,7 +45,12 @@ function App() {
       <File name ="cats.png" />
     </Folder>
   
-    <Folder name="Applications"/>
+    <Folder name="Applications">
+      <File name ='React programs.doc'/>
+      </Folder>
+      <Folder name="Documents">
+        <File name ="rectLession.mp4"/>
+      </Folder>
     
     
   </div>
@@ -88,7 +93,17 @@ const Folder = (props)=>{
 
 //created an another File Component
 const File = (props)=>{
-  return <div>{props.name}</div>
+  const{name} = props;
+  const fileExtension = name.split('.')[1];
+  const fileIcons = {
+    mp4 : 'headphones',
+    jpeg: 'file image',
+    png : 'file image outline',
+    doc : 'file'
+
+  }
+  return <div >
+    <i className ={` yellow ${fileIcons[fileExtension]} icon`} ></i> {props.name}</div>
 
 };
 
