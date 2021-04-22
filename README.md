@@ -7,7 +7,7 @@
 ## Different icons based on the file type
 ## User can open and close the folders 
 ## Shows down arrow when folder is open
-## shows right arraow when folder is closed.
+## shows right arrow when folder is closed.
 
 # Github Page
  https://vsatyakavya.github.io/ReactFileNavigation/
