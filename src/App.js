@@ -29,12 +29,14 @@
 
  //</Folder> 
 
-
-
+//useState hook , useState(false) function returns as [false , f],it always return two elements.first element is a default value(in our case false) and second element is a function.
+//useState rerenders the components when the informatiion is changed
+//in our case isOpen value is changed 
+import React, {useState}from 'react';
 function App() {
   return <div>
   
-    <Folder name="Desktop">
+    <Folder name="Desktop" >
        <Folder name = "Music">
          <File name ="all_stars.mp4" />
          <File name = "express_file.mp4"/>
@@ -59,15 +61,26 @@ function App() {
 //   return <h4>{name}</h4>
 // }
 
+
+
+
 //props is a regular function argument, default word in React
 //default props value is an empty object ,console.log(props) returns an {} empty object by default
 //To pass the values to the props , give it to the component(Folder) when calling a function (Folder)
-const Folder = (props) => {
-  console.log(props);
+const Folder = (props)=>{
+  const[isOpen , setIsOpen] = useState(true);
+  const{name , children} = props;
+  const direction = isOpen ? 'down' : 'right';
+  
+  const handleClick = () => setIsOpen(!isOpen)
+  
   return <div>
-    {props.name}
+    <span onClick={handleClick}>
+      <i className = "blue folder icon"></i>
+      <i className = {`caret ${direction} icon`}></i>
+      {name}</span>
   <div style={{marginLeft : '17px'}}>
-  {props.children}
+  {isOpen ? children : null}
   </div>
   </div>
 }
